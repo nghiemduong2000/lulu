@@ -1,95 +1,110 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client';
+import BannerHome from '@/components/BannerHome';
+import { Box, Typography } from '@mui/material';
+import { FC, WheelEventHandler, useEffect, useRef } from 'react';
+import wood_board from '../../public/wood_board.png';
+
+
+import { makeStyles } from "tss-react/mui";
+import { playpen_sans } from './fonts';
+
+const useStyles = makeStyles()(() => ({
+  wrapper: {
+    height: '100vh',
+    overflow: 'auto',
+    position: 'relative',
+  },
+  wrapperMenu: {
+    top: 0,
+    left: 0,
+    zIndex: 1,
+    gap: '30px',
+    width: '100%',
+    display: 'flex',
+    position: 'absolute',
+    justifyContent: 'center',
+  },
+  woodBoard: {
+    cursor: 'pointer',
+    position: 'relative',
+    transition: 'all 0.2s linear',
+    img: {
+        width: '180px',
+    },
+    '.MuiTypography-h3': {
+        left: '0px',
+        width: '100%',
+        bottom: '32px',
+        fontWeight: 700,
+        fontSize: '16px',
+        display: 'block',
+        color: '#FFF4E9',
+        textAlign: 'center',
+        position: 'absolute',
+        transition: 'all 0.2s linear',
+        fontFamily: playpen_sans.style.fontFamily,
+    },
+    '&:hover': {
+        transform: 'translateY(8px) scale(1.1)',
+        '.MuiTypography-h3': {
+            transform: 'scale(1.1)',
+        },
+    },
+  },
+}));
+
+const menus = [
+  {
+      title: 'About Lu',
+  },
+  {
+      title: 'Education',
+  },
+  {
+      title: 'Achievement',
+  },
+  {
+      title: 'Skill',
+  },
+  {
+      title: 'Project',
+  },
+  {
+      title: 'Other land',
+  },
+];
+
+const BoardMenu: FC<{ title: string }> = ({ title }) => {
+  const { classes } = useStyles();
+
+  return (
+      <Box className={classes.woodBoard}>
+          <img src={wood_board.src} />
+          <Typography variant="h3">{title.toUpperCase()}</Typography>
+      </Box>
+  )
+};
 
 export default function Home() {
+  const { classes } = useStyles();
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  const handleWheel: WheelEventHandler = (event) => {
+    event.stopPropagation();
+  }
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <Box ref={ref} className={classes.wrapper} onWheel={handleWheel}>
+      <Box className={classes.wrapperMenu}>
+        {menus.map((menu) => (
+            <BoardMenu key={menu.title} title={menu.title} />
+        ))}
+      </Box>
+      <BannerHome parentRef={ref} />
+      <Box height="100vh">
+        <Typography variant='h1'>Hello World</Typography>  
+      </Box>
+    </Box>
   )
 }
