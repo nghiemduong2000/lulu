@@ -2,7 +2,7 @@
 
 import Box from "@mui/material/Box";
 import { makeStyles } from "tss-react/mui";
-import letterL from '../../../public/letter_l.png';
+import letterL from 'public/letter_l.png';
 import { FC } from "react";
 import Image from "next/image";
 import Typography from "@mui/material/Typography";

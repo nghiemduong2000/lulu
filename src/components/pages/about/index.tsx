@@ -1,6 +1,6 @@
 'use client';
 import Box from '@mui/material/Box';
-import aboutBg from '../../../public/about_bg.png';
+import aboutBg from 'public/about_bg.png';
 import { spectral } from "@/app/fonts";
 
 import Navbar from '@/components/Navbar';

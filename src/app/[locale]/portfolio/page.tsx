@@ -1,4 +1,4 @@
-import Portfolio from "@/pages/Portfolio";
+import Portfolio from "@/components/pages/Portfolio";
 
 const Page = () => {
   return (

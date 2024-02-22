@@ -99,6 +99,7 @@ const BannerPortfolio: FC<{ parentRef: RefObject<HTMLDivElement> }> = ({ parentR
                 childElement.removeEventListener('wheel', handleScroll);
             };
         }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
 
     useEffect(() => {  

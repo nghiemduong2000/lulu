@@ -1,6 +1,6 @@
 'use client';
 import Box from '@mui/material/Box';
-import homeBg from '../../../public/home_bg.png';
+import homeBg from 'public/home_bg.png';
 
 import Navbar from '@/components/Navbar';
 import Footer from './Footer';

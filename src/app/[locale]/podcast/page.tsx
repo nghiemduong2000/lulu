@@ -1,4 +1,4 @@
-import Podcast from "@/pages/Podcast";
+import Podcast from "@/components/pages/Podcast";
 
 const Page = () => {
   return (
