@@ -1,0 +1,30 @@
+{
+    "home": {
+        "title": "Home"
+    },
+    "aboutLu": {
+        "i": "I",
+        "am": "am",
+        "lu": "Lu",
+        "title": "About Lu",
+        "intro": {
+            "paragraph1": "Hello, my name is Hồng Hạnh but it would be more fun if you knew me by the nickname Lulu...",
+            "paragraph2": "Or simply Lu!",
+            "paragraph3": "<strong>\"Lululand\"</strong> - a place created by the stories that have unfolded throughout the stages of time I have experienced. The things that make up the value of this strange land or simply if you are curious, I will do more to explore that land."
+        }
+    },
+    "portfolio": {
+        "title": "Portfolio"
+    },
+    "blog": {
+        "title": "Blog"
+    },
+    "podcast": {
+        "title": "Podcast"
+    },
+    "language": {
+        "title": "Language",
+        "english": "English",
+        "vietnamese": "Vietnamese"
+    }
+}

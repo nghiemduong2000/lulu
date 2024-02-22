@@ -1,0 +1,30 @@
+{
+    "home": {
+        "title": "Trang chủ"
+    },
+    "aboutLu": {
+        "i": "Tôi",
+        "am": "là",
+        "lu": "Lu",
+        "title": "Về Lu",
+        "intro": {
+            "paragraph1": "Xin chào, tôi tên là Hồng Hạnh nhưng sẽ thú vị hơn nếu bạn biết tới tôi với biệt danh Lulu...",
+            "paragraph2": "Hoặc đơn giản là Lu!",
+            "paragraph3": "<strong>\"Lululand\"</strong>  - nơi được tạo ra bởi những câu chuyện đã diễn ra theo những giai đoạn thời gian tôi được chiêm nghiệm. Những thứ tạo nên giá trí của vùng đất kỳ lạ này hay đơn giản nếu bạn đang tò mò tôi sẽ làm thêm gì để khai phá vùng đất đó."
+        }
+    },
+    "portfolio": {
+        "title": "Portfolio"
+    },
+    "blog": {
+        "title": "Blog"
+    },
+    "podcast": {
+        "title": "Podcast"
+    },
+    "language": {
+        "title": "Ngôn ngữ",
+        "english": "Tiếng Anh",
+        "vietnamese": "Tiếng Việt"
+    }
+}

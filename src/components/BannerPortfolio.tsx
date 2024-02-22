@@ -2,8 +2,9 @@
 
 import Box from "@mui/material/Box";
 import { makeStyles } from "tss-react/mui";
-import background from '../../public/home_bg.png';
-import { FC, MouseEventHandler, RefObject, WheelEventHandler, useCallback, useEffect, useRef, useState } from "react";
+import background from '../../public/portfolio_bg.png';
+import { FC, MouseEventHandler, RefObject, useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const useStyles = makeStyles()(() => ({
   wrapperBanner: {
@@ -19,10 +20,9 @@ const useStyles = makeStyles()(() => ({
   wrapperImage: {
     minWidth: '100vw',
     minHeight: '100vh',
+    position: 'relative',
     aspectRatio: '16 / 9',
     img: {
-        width: '100%',
-        height: '100%',
         display: 'block',
         userDrag: 'none',
         OUserDrag: 'none',
@@ -37,7 +37,7 @@ const defaultPos = { top: 0, left: 0, x: 0, y: 0 };
 
 let pos = defaultPos;
 
-const BannerHome: FC<{ parentRef: RefObject<HTMLDivElement> }> = ({ parentRef }) => {
+const BannerPortfolio: FC<{ parentRef: RefObject<HTMLDivElement> }> = ({ parentRef }) => {
     const { classes } = useStyles();
 
     const [isDragging, setIsDragging] = useState(false);
@@ -134,10 +134,10 @@ const BannerHome: FC<{ parentRef: RefObject<HTMLDivElement> }> = ({ parentRef })
             onMouseDown={handleMouseDown}
         >
             <Box className={classes.wrapperImage}>
-                <img src={background.src} />
+                <Image fill={true} alt="banner" src={background.src} />
             </Box>
         </Box>
     );
 };
 
-export default BannerHome;
+export default BannerPortfolio;
