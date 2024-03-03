@@ -13,37 +13,52 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
 
-const useStyles = makeStyles()(() => ({
+const useStyles = makeStyles()(({ breakpoints }) => ({
   wrapperFooter: {
-    width: '100%',
-    height: '100vh',
+    width: '100vw',
+    display: 'flex',
+    minHeight: '100vh',
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#FFF4E9',
     '.footer': {
-        top: '50%',
         gap: '64px',
-        margin: 'auto',
+        width: '100%',
+        height: '100%',
         padding: '32px',
-        display: 'grid',
+        display: 'flex',
+        flexWrap: 'wrap',
         maxWidth: '1000px',
-        position: 'relative',
-        transform: 'translateY(-50%)',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+        alignItems: 'center',
+        justifyContent: 'center',
         '&-left': {
-            minWidth: '200px',
+            flex: 1,
+            minWidth: '350px',
+            maxWidth: '500px',
             position: 'relative',
             aspectRatio: '900 / 1024',
+            [breakpoints.up('sm')]: {
+                minWidth: '490px',
+            },
         },
         '&-right': {
+            flex: 1,
             fontFamily: playpen_sans.style.fontFamily,
             gridTemplateAreas: `'capabilities portfolio' 'copyright contacts'`,
             '.MuiTypography-h4': {
                 fontWeight: 700,
-                fontSize: '72px',
+                fontSize: '35px',
                 gridArea: 'title',
                 color: '#BD7A33',
                 textAlign: 'center',
                 fontFamily: 'inherit',
                 whiteSpace: 'pre-wrap',
+                [breakpoints.up('sm')]: {
+                    fontSize: '50px',
+                },
+                [breakpoints.up('md')]: {
+                    fontSize: '60px',
+                }
             },
             '.navigation': {
                 gap: '8px',

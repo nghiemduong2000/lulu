@@ -12,6 +12,7 @@ import { AppRouteEnum } from "@/enum";
 import { usePathname, useRouter } from "@/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import CustomMenu from "@/app/CustomMenu";
+import Image from "next/image";
 
 enum LANGUAGE {
     ENGLISH = 'ENGLISH',
@@ -25,25 +26,37 @@ interface IMenu {
     path?: AppRouteEnum;
 }
 
-interface IMenus extends IMenu {
+export interface IMenus extends IMenu {
     children?: IMenu[];
 }
 
-const useStyles = makeStyles()(() => ({
+const useStyles = makeStyles()(({ breakpoints }) => ({
+    navbar: {
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 2,
+        position: 'absolute',
+    },
     wrapperMenu: {
-      top: 0,
-      left: 0,
-      zIndex: 1,
-      gap: '30px',
-      width: '100%',
-      display: 'flex',
-      position: 'absolute',
-      justifyContent: 'center',
+        gap: '10px',
+        margin: 'auto',
+        display: 'flex',
+        padding: '0 20px',
+        maxWidth: '1230px',
+        justifyContent: 'center',
+        [breakpoints.up('md')]: {
+            gap: '20px',
+        },
+        [breakpoints.up('lg')]: {
+            gap: '30px',
+        },
     },
     popOverRoot: {
         pointerEvents: 'none',
     },
     wrapperWoodBoard: {
+        flex: 1,
         position: 'relative',
         '&::before': {
             top: 'calc(100% + 5px)',
@@ -57,22 +70,23 @@ const useStyles = makeStyles()(() => ({
         '.woodBoard': {
             cursor: 'pointer',
             position: 'relative',
+            aspectRatio: '180/127',
             transition: 'all 0.2s linear',
-            img: {
-                width: '180px',
-            },
             '.MuiTypography-h3': {
                 left: '0px',
                 width: '100%',
-                bottom: '32px',
+                bottom: '22%',
                 fontWeight: 700,
-                fontSize: '16px',
+                fontSize: '12px',
                 display: 'block',
                 color: '#FFF4E9',
                 textAlign: 'center',
                 position: 'absolute',
                 transition: 'all 0.2s linear',
                 fontFamily: playpen_sans.style.fontFamily,
+                [breakpoints.up('lg')]: {
+                    fontSize: '16px',
+                },
             },
         },
         '&:hover': {
@@ -168,7 +182,7 @@ const BoardMenu: FC<{ isLanguage?: boolean; data: IMenus }> = ({ isLanguage, dat
             onClick={handleClick}
         >
             <Box className="woodBoard">
-                <img src={wood_board.src} />
+                <Image fill src={wood_board.src} alt="Wood board" />
                 <Typography variant="h3">{title.toUpperCase()}</Typography>
             </Box>
             {children?.length && <CustomMenu value={isLanguage ? locale : ''} menus={children} className="menu" onClick={handleClickMenuItem} />}
@@ -181,28 +195,30 @@ const Navbar = () => {
     const { classes } = useStyles();
 
     return (
-        <Box className={classes.wrapperMenu}>
-            {menus(t).map((menu) => (
-                <BoardMenu key={menu.title} data={menu} />
-            ))}
-            <BoardMenu
-                isLanguage
-                data={{
-                    title: t('language.title'),
-                    children: [
-                        {
-                            value: 'en',
-                            type: LANGUAGE.ENGLISH,
-                            title: t('language.english'),
-                        },
-                        {   
-                            value: 'vi',
-                            type: LANGUAGE.VIETNAMESE,
-                            title: t('language.vietnamese'),
-                        },
-                    ],
-                }}
-            />
+        <Box className={classes.navbar}>
+            <Box className={classes.wrapperMenu}>
+                {menus(t).map((menu) => (
+                    <BoardMenu key={menu.title} data={menu} />
+                ))}
+                <BoardMenu
+                    isLanguage
+                    data={{
+                        title: t('language.title'),
+                        children: [
+                            {
+                                value: 'en',
+                                type: LANGUAGE.ENGLISH,
+                                title: t('language.english'),
+                            },
+                            {   
+                                value: 'vi',
+                                type: LANGUAGE.VIETNAMESE,
+                                title: t('language.vietnamese'),
+                            },
+                        ],
+                    }}
+                />
+            </Box>
         </Box>
     )
 }

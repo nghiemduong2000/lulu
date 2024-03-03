@@ -5,15 +5,16 @@ import { makeStyles } from 'tss-react/mui';
 import topDecor from 'public/topDecor.png';
 import avatar from 'public/avatar.png';
 import chainedBoard from 'public/chained_board.png';
-import infoBoard from 'public/info_board.png';
 import contactBoard from 'public/contact_board.png';
 import { playpen_sans } from '@/app/fonts';
-import { Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import { useTranslations } from 'next-intl';
+import Link from '@mui/material/Link';
 
 const useStyles = makeStyles()((theme) => ({
     wrapperInformation: {
@@ -21,6 +22,7 @@ const useStyles = makeStyles()((theme) => ({
         minHeight: '100vh',
         overflow: 'hidden',
         position: 'relative',
+        backgroundColor: '#FFF4E9',
         '.information-wave': {
             top: '0px',
             left: '50%',
@@ -71,6 +73,7 @@ const useStyles = makeStyles()((theme) => ({
                     alignItems: 'center',
                     '.icon': {
                         flex: '0.18',
+                        color: 'white',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -93,7 +96,7 @@ const useStyles = makeStyles()((theme) => ({
             '& > .MuiBox-root': {
                 '&:first-of-type': {
                     position: 'relative',
-                    aspectRatio: '430 / 670',
+                    aspectRatio: '7 / 10',
                 },
                 '&:nth-of-type(2)': {
                     position: 'relative',
@@ -110,7 +113,8 @@ const useStyles = makeStyles()((theme) => ({
                     border: '8px solid #6A5446',
                     '.MuiTypography-caption': {
                         color: 'black',
-                        fontSize: '32px',
+                        fontSize: '28px',
+                        whiteSpace: 'pre-wrap',
                     },
                 },
             },
@@ -169,22 +173,27 @@ const contactInfos = [
     {
         value: 'instagram',
         label: '@kat.iaartist',
+        link: 'https://www.instagram.com/kat.iaartist/',
         icon: <InstagramIcon sx={{ fontSize: '40px' }} />,
     },
     {
         value: 'linkedin',
         label: 'www.linkedin.com/in/honghanh25/',
+        link: 'https://www.linkedin.com/in/honghanh25/',
         icon: <LinkedInIcon sx={{ fontSize: '40px' }} />,
     },
     {
         value: 'tiktok',
         label: '@beluxinhne',
+        link: 'https://www.tiktok.com/@beluxinhne',
         icon: <MusicNoteIcon sx={{ fontSize: '40px' }} />,
     },
 ]
 
 const Information = () => {
+    const t = useTranslations();
     const { classes } = useStyles();
+
     return (
         <Box className={classes.wrapperInformation}>
             <Box className="information-wave">
@@ -223,7 +232,13 @@ const Information = () => {
                     <Box className="contacts-wrapper">
                         {contactInfos.map((info) => (
                             <Box key={info.value} className="contact">
-                                <Box className="icon">{info.icon}</Box>
+                                {info.link
+                                    ? (
+                                        <Link href={info.link} target="_blank" className="icon">
+                                            {info.icon}
+                                        </Link>
+                                    )
+                                    : <Box className="icon">{info.icon}</Box>}
                                 <Typography variant="body1" flex="0.8">{info.label}</Typography>
                             </Box>
                         ))}
@@ -231,7 +246,9 @@ const Information = () => {
                 </Box>
                 <Box gridArea="description">
                     <Typography variant="caption">
-                        Họ tên đầy đủ <strong>Ngô Hồng Hạnh</strong>, trào đời vào ngày 25/08/2001, tại một thị xã nhỏ ở tỉnh Hưng Yên, Việt Nam.
+                        {t.rich('aboutLu.information.description', {
+                            strong: (chunks) => <strong>{chunks}</strong>
+                        })}
                     </Typography>
                 </Box>
             </Box>

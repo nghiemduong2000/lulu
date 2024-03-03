@@ -1,6 +1,6 @@
 'use client';
 import BannerPortfolio from '@/components/BannerPortfolio';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { WheelEventHandler, useRef } from 'react';
 
 import { makeStyles } from "tss-react/mui";
@@ -27,9 +27,6 @@ const Portfolio = () => {
     <Box ref={ref} className={classes.wrapper} onWheel={handleWheel}>
       <Navbar />
       <BannerPortfolio parentRef={ref} />
-      <Box height="100vh">
-        <Typography variant='h1'>Hello World</Typography>  
-      </Box>
     </Box>
   )
 };
