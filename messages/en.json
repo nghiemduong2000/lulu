@@ -17,7 +17,13 @@
         }
     },
     "portfolio": {
-        "title": "Portfolio"
+        "title": "Portfolio",
+        "luWorking": "Lu working",
+        "luStudying": "Lu studying",
+        "luCreating": "Lu creating",
+        "luDevoting": "Lu devoting",
+        "luInOtherland": "Lu in otherland",
+        "luAccumulating": "Lu accumulating"
     },
     "blog": {
         "title": "Blog"

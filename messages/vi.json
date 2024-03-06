@@ -17,7 +17,13 @@
         }
     },
     "portfolio": {
-        "title": "Portfolio"
+        "title": "Portfolio",
+        "luWorking": "Lu đi làm",
+        "luStudying": "Lu đi học",
+        "luCreating": "Lu sản xuất",
+        "luDevoting": "Lu cống hiến",
+        "luInOtherland": "Lu in otherland",
+        "luAccumulating": "Lu tích luỹ"
     },
     "blog": {
         "title": "Blog"

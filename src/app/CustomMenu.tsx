@@ -5,8 +5,8 @@ import { playpen_sans } from "@/app/fonts";
 interface ICustomMenu {
     value: string;
     className: string;
-    menus: { title: string, value?: string, type?: string }[];
-    onClick: (type?: string) => void;
+    menus: { title: string, value?: string, type?: string, path?: string }[];
+    onClick: (type?: string, path?: string) => void;
 }
 
 const useStyles = makeStyles()(() => ({
@@ -49,9 +49,10 @@ const useStyles = makeStyles()(() => ({
 const CustomMenu: FC<ICustomMenu> = ({ value, menus, className, onClick }) => {
     const { classes, cx } = useStyles();
 
-    const handleClick = (type?: string) => () => {
+    const handleClick = (type?: string, path?: string) => (event: any) => {
+        event.stopPropagation();
         if (!!onClick) {
-            onClick(type);
+            onClick(type, path);
         }
     };
 
@@ -61,7 +62,7 @@ const CustomMenu: FC<ICustomMenu> = ({ value, menus, className, onClick }) => {
                 <li
                     key={menu.title}
                     className={cx('item', value === menu.value && 'active')}
-                    onClick={handleClick(menu.type)}
+                    onClick={handleClick(menu.type, menu.path)}
                 >
                     {menu.title}
                 </li>

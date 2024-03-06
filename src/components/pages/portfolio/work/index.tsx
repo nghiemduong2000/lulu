@@ -11,6 +11,7 @@ import Page3 from "./Page3";
 import Page4 from "./Page4";
 import Page5 from "./Page5";
 import Page6 from "./Page6";
+import Page7 from "./Page7";
 
 const useStyles = makeStyles()(() => ({
   wrapper: {
@@ -18,7 +19,7 @@ const useStyles = makeStyles()(() => ({
   },
 }));
 
-const pages = [<Page1 key="page1" />, <Page2 key="page2" />, <Page3 key="page3" />, <Page4 key="page4" />, <Page5 key="page5" />, <Page6 key="page6" />];
+const pages = [<Page1 key="page1" />, <Page2 key="page2" />, <Page3 key="page3" />, <Page4 key="page4" />, <Page5 key="page5" />, <Page6 key="page6" />, <Page7 key="page7" />];
 
 const Work = () => {
   const { classes } = useStyles();

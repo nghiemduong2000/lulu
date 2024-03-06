@@ -127,23 +127,23 @@ let pos = defaultPos;
 const contents = (t: (value: string) => string) => [
     {
         path: AppRouteEnum.Accumulation,
-        label: 'Lu accumulating',
+        label: t('portfolio.luAccumulating'),
     },
     {
         path: AppRouteEnum.Study,
-        label: 'Lu studying',
+        label: t('portfolio.luStudying'),
     },
     {
         path: '',
-        label: 'Lu creating',
+        label: t('portfolio.luCreating'),
     },
     {
         path: AppRouteEnum.Work,
-        label: 'Lu working',
+        label: t('portfolio.luWorking'),
     },
     {
         path: AppRouteEnum.Devotion,
-        label: 'Lu devoting',
+        label: t('portfolio.luDevoting'),
     },
     {
         path: '',

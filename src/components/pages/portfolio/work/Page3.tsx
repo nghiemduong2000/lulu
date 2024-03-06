@@ -4,82 +4,84 @@ import React from 'react'
 import Image from 'next/image';
 import Divider from '@mui/material/Divider';
 import { makeStyles } from 'tss-react/mui';
-import work_1 from 'public/work_1.png';
-import work_2 from 'public/work_2.png';
+import work_1 from 'public/work/2_1.png';
+import work_2 from 'public/work/2_2.png';
+import work_3 from 'public/work/2_3.png';
+import work_4 from 'public/work/2_4.png';
 import Link from '@mui/material/Link';
 
 const useStyles = makeStyles()(() => ({
-    wrapperPages: {
-        display: 'flex',
-        '.page': {
-            flex: 1,
-            display: 'flex',
-            position: 'relative',
-            alignItems: 'center',
-            justifyContent: 'center',
-            '.wrapperContent': {
-              gap: '5vw',
+  wrapperPages: {
+      display: 'flex',
+      '.page': {
+          width: '50%',
+          display: 'flex',
+          lineHeight: '14px',
+          position: 'relative',
+          alignItems: 'center',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          ':nth-of-type(1)': {
               display: 'flex',
-              maxWidth: '80%',
               flexDirection: 'column',
-              '.info': {
-                '.MuiDivider-root': {
-                  width: '20%',
-                  margin: '1vw 0',
-                  borderWidth: '0.2vw',
-                  borderColor: '#7D5932',
-                },
-                '.MuiTypography-h2': {
-                  fontSize: '1.9vw',
-                  fontWeight: 700,
-                  color: '#623E23',
-                  textTransform: 'uppercase',
-                },
-                '.MuiTypography-h3': {
-                  fontSize: '1.3vw',
-                  fontWeight: 700,
-                  color: '#7D5932',
-                  span: {
-                    fontWeight: 400,
-                    fontSize: '1.3vw',
-                    color: '#3E2A1E',
-                  },
-                  '&:not(:first-of-type)': {
-                    marginTop: '1vw',
-                  },
-                },
-                ul: {
-                  li: {
-                    fontSize: '1.2vw',
-                    marginLeft: '2vw',
-                    color: '#3E2A1E',
-                    lineHeight: '2vw',
-                  },
-                },
+              padding: '0 2vw 0 6vw',
+              '& > .MuiTypography-body1': {
+                  fontWeight: 400,
+                  fontSize: '0.8vw',
+                  lineHeight: '1vw',
+                  color: '#231F20',
+                  marginBottom: '0.8vw',
+              },
+              '.image1, .image2': {
+                  flex: 1,
+                  position: 'relative',
+                  margin: '0.6vw 0 0.5vw',
+                  aspectRatio: '132 / 179',
               },
               '.link': {
-                display: 'flex',
-                flexWrap: 'nowrap',
-                '.MuiTypography-h3': {
-                  flex: 1,
+                width: '100%',
+                '.MuiLink-root': {
                   fontWeight: 700,
-                  fontSize: '1.3vw',
-                  color: '#7D5932',
+                  fontSize: '1.2vw',
+                  color: '#1A3C6D',
                 },
-                a: {
-                  flex: 2.5,
-                  fontSize: '1.3vw',
-                  wordBreak: 'break-all',
-                },
-              }
-            },
-        },
-    },
-    wrapperImage: {
-        width: '72%',
-        position: 'relative',
-        aspectRatio: '1 / 1',
-    },
+              },
+          },
+          ':nth-of-type(2)': {
+              padding: '0 4vw 0 2vw',
+              alignItems: 'flex-start',
+              '.MuiDivider-root': {
+                  width: '20%',
+                  borderStyle: 'dashed',
+                  margin: '0.5vw 0 4vw',
+                  borderColor: '#7D5932',
+                  borderBottomWidth: '0.4vw',
+              },
+              '.image3, .image4': {
+                  width: '60%',
+                  position: 'relative',
+                  aspectRatio: '179 / 82',
+              },
+              '.image4': {
+                marginTop: '1vw',
+                alignSelf: 'flex-end',
+              },
+              '& > .MuiTypography-h2': {
+                  fontWeight: 700,
+                  fontSize: '1.8vw',
+                  lineHeight: '2vw',
+                  color: '#623E23',
+              },
+              '& > .MuiTypography-body1': {
+                  fontWeight: 400,
+                  fontSize: '0.8vw',
+                  lineHeight: '1vw',
+                  color: '#231F20',
+                  marginBottom: '0.8vw',
+              },
+          },
+      },
+  },
 }));
 
 const Page3 = () => {
@@ -87,30 +89,30 @@ const Page3 = () => {
     return (
         <Box className={classes.wrapperPages}>
             <Box className="page">
-                <Box>
-                    <Box className={classes.wrapperImage}>
+                <Box gap="1vw" width="100%" display="flex" marginBottom="1vw">
+                    <Box className="image1">
                         <Image fill src={work_1.src} alt="certificate" />
                     </Box>
-                    <Box className={classes.wrapperImage}>
-                        <Image fill src={work_1.src} alt="certificate" />
+                    <Box className="image2">
+                        <Image fill src={work_2.src} alt="certificate" />
                     </Box>
                 </Box>
-                <Typography variant="body1">Trưởng ban tổ chức sự kiện Online và Offline với quy mô 350 người ( 5 nhân sự hỗ trợ, 4 media quay/chụp, 5 cộng tác viên). Sự kiện Tết cổ truyền cho học viên (20 - 30 tuổi). Xây dựng key visual, concept riêng cho sự kiện.</Typography>
-                <Link target="_blank" href="https://www.tiktok.com/@duhoc.vxtedu/photo/7322477139247353089?is_from_webapp=1&sender_device=pc&web_id=7203571822884226561">
-                    Link chi tiết
-                </Link>
+                <Typography variant="body1">Hướng dẫn và phát triển content kênh TikTok truyền thông có nhiều bài tương tác gần 1 triệu lượt xem, thu hút data học viên Online TĂNG 10% (doanh nghiệp chưa khai thác data từ social media trước đây).</Typography>
+                <Box className="link">
+                  <Link target="_blank" href="https://www.tiktok.com/@duhoc.vxtedu/photo/7322477139247353089?is_from_webapp=1&sender_device=pc&web_id=7203571822884226561">
+                      Link chi tiết
+                  </Link>
+                </Box>
             </Box>
             <Box className="page">
-                <Box className="wrapperContent">
-                    <Typography variant="h2">VXT EDU</Typography>
-                    <Divider />
-                    <Typography variant="body1">Quản lý và định hướng các tuyến nội dung, báo cáo đo lường hiệu quả (metric).</Typography>
-                    <Box className={classes.wrapperImage}>
-                        <Image fill src={work_1.src} alt="certificate" />
-                    </Box>
-                    <Box className={classes.wrapperImage}>
-                        <Image fill src={work_1.src} alt="certificate" />
-                    </Box>
+                <Typography variant="h2">VXT EDU</Typography>
+                <Divider />
+                <Typography variant="body1">Quản lý và định hướng các tuyến nội dung, báo cáo đo lường hiệu quả (metric).</Typography>
+                <Box className="image3">
+                    <Image fill src={work_3.src} alt="certificate" />
+                </Box>
+                <Box className="image4">
+                    <Image fill src={work_4.src} alt="certificate" />
                 </Box>
             </Box>
         </Box>

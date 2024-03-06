@@ -43,7 +43,7 @@ const useStyles = makeStyles()(({ breakpoints }) => ({
         margin: 'auto',
         display: 'flex',
         padding: '0 20px',
-        maxWidth: '1230px',
+        maxWidth: '980px',
         justifyContent: 'center',
         [breakpoints.up('md')]: {
             gap: '20px',
@@ -123,19 +123,23 @@ const menus = (t: (value: string) => string): IMenus[] => [
         title: t('portfolio.title'),
         children: [
             {
-                path: AppRouteEnum.Portfolio,
+                path: AppRouteEnum.Study,
                 title: 'Education',
             },
             {
-                path: AppRouteEnum.Portfolio,
+                path: AppRouteEnum.Devotion,
                 title: 'Achievement',
+            },
+            {
+                path: AppRouteEnum.Work,
+                title: 'Experience',
             },
             {
                 path: AppRouteEnum.Portfolio,
                 title: 'Skill',
             },
             {
-                path: AppRouteEnum.Portfolio,
+                path: AppRouteEnum.Accumulation,
                 title: 'Project',
             },
             {
@@ -147,10 +151,6 @@ const menus = (t: (value: string) => string): IMenus[] => [
     {
         path: AppRouteEnum.Blog,
         title: t('blog.title'),
-    },
-    {
-        path: AppRouteEnum.Podcast,
-        title: t('podcast.title'),
     },
   ];
 
@@ -170,9 +170,11 @@ const BoardMenu: FC<{ isLanguage?: boolean; data: IMenus }> = ({ isLanguage, dat
         router.replace(pathname, { locale: language[value] })
     };
     
-    const handleClickMenuItem = (type?: string) => {
+    const handleClickMenuItem = (type?: string, path?: string) => {
         if (isLanguage) {
             handleChangeLanguage(type as LANGUAGE)
+        } else if (path) {
+            router.push(path);
         }
     }
   

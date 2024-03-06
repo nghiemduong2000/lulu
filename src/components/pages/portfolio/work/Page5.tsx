@@ -4,82 +4,117 @@ import React from 'react'
 import Image from 'next/image';
 import Divider from '@mui/material/Divider';
 import { makeStyles } from 'tss-react/mui';
-import work_1 from 'public/work_1.png';
-import work_2 from 'public/work_2.png';
+import work_1 from 'public/work/4_1.png';
+import work_2 from 'public/work/4_3.png';
+import work_3 from 'public/work/4_2.png';
+import work_4 from 'public/work/4_5.png';
+import work_5 from 'public/work/4_4.png';
+import work_6 from 'public/work/4_6.png';
 import Link from '@mui/material/Link';
+import { roboto_condensed } from '@/app/fonts';
 
 const useStyles = makeStyles()(() => ({
-    wrapperPages: {
-        display: 'flex',
-        '.page': {
-            flex: 1,
-            display: 'flex',
-            position: 'relative',
-            alignItems: 'center',
-            justifyContent: 'center',
-            '.wrapperContent': {
-              gap: '5vw',
+  wrapperPages: {
+      width: '100%',
+      display: 'flex',
+      fontFamily: roboto_condensed.style.fontFamily,
+      '.page': {
+          width: '50%',
+          display: 'flex',
+          lineHeight: '14px',
+          position: 'relative',
+          alignItems: 'center',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          '.MuiTypography-h3': {
+            fontSize: '1vw',
+            fontWeight: 700,
+            margin: '0.5vw 0',
+            color: '#7D5932',
+          },
+          ':nth-of-type(1)': {
               display: 'flex',
-              maxWidth: '80%',
               flexDirection: 'column',
-              '.info': {
-                '.MuiDivider-root': {
-                  width: '20%',
-                  margin: '1vw 0',
-                  borderWidth: '0.2vw',
-                  borderColor: '#7D5932',
-                },
-                '.MuiTypography-h2': {
-                  fontSize: '1.9vw',
+              padding: '0 2vw 0 5vw',
+              '& > .MuiTypography-body1': {
+                  fontWeight: 400,
+                  fontSize: '0.8vw',
+                  lineHeight: '1vw',
+                  color: '#231F20',
+                  marginBottom: '0.8vw',
+              },
+              '.image1, .image2': {
+                  width: '100%',
+                  marginBottom: '1vw',
+                  position: 'relative',
+                  aspectRatio: '570 / 324',
+              },
+              '.image3': {
+                width: '100%',
+                marginTop: '2vw',
+                position: 'relative',
+                aspectRatio: '707 / 247',
+            },
+              '.link': {
+                width: '100%',
+                '.MuiLink-root': {
                   fontWeight: 700,
-                  color: '#623E23',
-                  textTransform: 'uppercase',
-                },
-                '.MuiTypography-h3': {
-                  fontSize: '1.3vw',
-                  fontWeight: 700,
-                  color: '#7D5932',
-                  span: {
-                    fontWeight: 400,
-                    fontSize: '1.3vw',
-                    color: '#3E2A1E',
-                  },
-                  '&:not(:first-of-type)': {
-                    marginTop: '1vw',
-                  },
-                },
-                ul: {
-                  li: {
-                    fontSize: '1.2vw',
-                    marginLeft: '2vw',
-                    color: '#3E2A1E',
-                    lineHeight: '2vw',
-                  },
+                  fontSize: '1.2vw',
+                  color: '#1A3C6D',
                 },
               },
-              '.link': {
-                display: 'flex',
-                flexWrap: 'nowrap',
-                '.MuiTypography-h3': {
+          },
+          ':nth-of-type(2)': {
+              padding: '0 5vw 0 3vw',
+              alignItems: 'flex-start',
+              '.MuiDivider-root': {
+                  width: '20%',
+                  borderStyle: 'dashed',
+                  margin: '0.5vw 0 4vw',
+                  borderColor: '#7D5932',
+                  borderBottomWidth: '0.4vw',
+              },
+              '.image4, .image5': {
                   flex: 1,
+                  position: 'relative',
+                  aspectRatio: '1 / 1',
+              },
+              '& > .MuiTypography-h2': {
                   fontWeight: 700,
-                  fontSize: '1.3vw',
-                  color: '#7D5932',
+                  fontSize: '1.8vw',
+                  lineHeight: '2vw',
+                  color: '#623E23',
+              },
+              '& > .MuiTypography-body1': {
+                  fontWeight: 400,
+                  fontSize: '0.8vw',
+                  lineHeight: '1vw',
+                  color: '#231F20',
+                  marginBottom: '0.8vw',
+              },
+              '.draftPaper': {
+                flex: 1,
+                display: 'flex',
+                alignItems: 'center',
+                backgroundSize: 'cover',
+                aspectRatio: '476 / 334',
+                justifyContent: 'center',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundImage: `url(${work_6.src})`,
+              },
+              ul: {
+                li: {
+                  fontSize: '0.8vw',
+                  marginLeft: '1.4vw',
+                  color: '#3E2A1E',
+                  lineHeight: '1.1vw',
+                  fontFamily: roboto_condensed.style.fontFamily,
                 },
-                a: {
-                  flex: 2.5,
-                  fontSize: '1.3vw',
-                  wordBreak: 'break-all',
-                },
-              }
-            },
-        },
-    },
-    wrapperImage: {
-        width: '72%',
-        position: 'relative',
-        aspectRatio: '1 / 1',
-    },
+              },
+          },
+      },
+  },
 }));
 
 const Page5 = () => {
@@ -87,37 +122,55 @@ const Page5 = () => {
     return (
         <Box className={classes.wrapperPages}>
             <Box className="page">
-                <Box className="wrapperContent">
-                    <Typography variant="h5">Dựng Storyboard</Typography>
-                    <Box className={classes.wrapperImage}>
-                        <Image fill src={work_1.src} alt="certificate" />
-                    </Box>
-                    <Link target="_blank" href="https://drive.google.com/file/d/1-pGufyl7btrQtnT9cab1vGhCP8Zsi5xb/view?usp=sharing">
-                        Drive storyboard sample
-                    </Link>
+                <Box gap="1vw" width="100%" display="flex">
+                  <Box flex="1" display="flex" alignItems="center" flexDirection="column">
+                      <Typography variant="h3">Dựng Storyboard</Typography>
+                      <Box className="image1">
+                          <Image fill src={work_1.src} alt="certificate" />
+                      </Box>
+                      <Link
+                        target="_blank"
+                        href="https://drive.google.com/file/d/1-pGufyl7btrQtnT9cab1vGhCP8Zsi5xb/view?usp=sharing"
+                        sx={{
+                          fontWeight: 700,
+                          color: '#1A3C6D',
+                          textDecorationColor: '#1A3C6D'
+                        }}
+                      >
+                          Drive storyboard sample
+                      </Link>
+                  </Box>
+                  <Box flex="1" display="flex" alignItems="center" flexDirection="column">
+                      <Typography variant="h3">Kịch bản quay</Typography>
+                      <Box className="image2">
+                          <Image fill src={work_2.src} alt="certificate" />
+                      </Box>
+                      <Link
+                        target="_blank"
+                        href="https://docs.google.com/document/d/17k-KB_8gc6RRGxhHOmRC10t4DLZ0f-p7KcP7vfIlThw/edit?usp=sharing"
+                        sx={{
+                          fontWeight: 700,
+                          color: '#1A3C6D',
+                          textDecorationColor: '#1A3C6D'
+                        }}
+                      >
+                          Drive KB sample
+                      </Link>
+                  </Box>
                 </Box>
-                <Box className="wrapperContent">
-                    <Typography variant="h5">Kịch bản quay</Typography>
-                    <Box className={classes.wrapperImage}>
-                        <Image fill src={work_1.src} alt="certificate" />
-                    </Box>
-                    <Link target="_blank" href="https://docs.google.com/document/d/17k-KB_8gc6RRGxhHOmRC10t4DLZ0f-p7KcP7vfIlThw/edit?usp=sharing">
-                        Drive KB sample
-                    </Link>
+                <Box className="image3">
+                    <Image fill src={work_3.src} alt="certificate" />
                 </Box>
-                <Box className={classes.wrapperImage}>
-                    <Image fill src={work_1.src} alt="certificate" />
-                </Box>
-                <Typography variant="h5">Content Plan Tracker</Typography>
+                <Typography variant="h3">Content Plan Tracker</Typography>
             </Box>
             <Box className="page">
                 <Typography variant="h2">STORMLAB AGENCY</Typography>
                 <Divider />
-                <Box>
-                    <Box className={classes.wrapperImage}>
-                        <Image fill src={work_1.src} alt="certificate" />
+                <Box width="100%" gap="2vw" display="flex" alignItems="center">
+                    <Box className="image4">
+                        <Image fill src={work_4.src} alt="certificate" />
                     </Box>
-                    <Box>
+                    <Box className="draftPaper">
                         <ul>
                             <li>Thảo luận với VJ nguyên liệu và cách chế biến</li>
                             <li>Nghiên cứu món ăn, đặt mua nguyên liệu, đồ trang trí</li>
@@ -125,16 +178,16 @@ const Page5 = () => {
                         </ul>
                     </Box>
                 </Box>
-                <Box>
-                    <Box>
+                <Box width="100%" gap="2vw" display="flex" alignItems="center">
+                    <Box className="draftPaper">
                         <ul>
                             <li>Phối hợp với quay phim điều chỉnh bố cục</li>
                             <li>Hỗ trợ chuẩn bị và xử lý tiền cảnh</li>
                             <li>Viết kịch bản dựng</li>
                         </ul>
                     </Box>
-                    <Box className={classes.wrapperImage}>
-                        <Image fill src={work_1.src} alt="certificate" />
+                    <Box className="image5">
+                        <Image fill src={work_5.src} alt="certificate" />
                     </Box>
                 </Box>
             </Box>

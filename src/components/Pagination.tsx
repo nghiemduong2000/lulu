@@ -15,10 +15,10 @@ interface IPagination {
 
 const useStyles = makeStyles()(() => ({
     wrapper: {
-        top: 0,
         zIndex: 1,
-        gap: '1.5vw',
         left: '50%',
+        gap: '1.5vw',
+        top: '-20px',
         display: 'flex',
         padding: '14px 12px',
         position: 'absolute',

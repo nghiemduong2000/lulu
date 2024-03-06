@@ -18,6 +18,7 @@
     "next-intl": "^3.4.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-player": "^2.15.1",
     "tss-react": "^4.9.3"
   },
   "devDependencies": {
