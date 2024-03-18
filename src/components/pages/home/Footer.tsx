@@ -11,7 +11,6 @@ import { playpen_sans } from "@/app/fonts";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { useTranslations } from "next-intl";
-import { Link } from "@/navigation";
 
 const useStyles = makeStyles()(({ breakpoints }) => ({
   wrapperFooter: {
@@ -44,7 +43,6 @@ const useStyles = makeStyles()(({ breakpoints }) => ({
         '&-right': {
             flex: 1,
             fontFamily: playpen_sans.style.fontFamily,
-            gridTemplateAreas: `'capabilities portfolio' 'copyright contacts'`,
             '.MuiTypography-h4': {
                 fontWeight: 700,
                 fontSize: '35px',
@@ -60,40 +58,13 @@ const useStyles = makeStyles()(({ breakpoints }) => ({
                     fontSize: '60px',
                 }
             },
-            '.navigation': {
-                gap: '8px',
-                display: 'flex',
-                flexDirection: 'column',
-                '.MuiTypography-subtitle1': {
-                    fontWeight: 700,
-                    fontSize: '24px',
-                    color: '#a2a354',
-                    textAlign: 'center',
-                    fontFamily: 'inherit',
-                },
-                a: {
-                    fontWeight: 500,
-                    fontSize: '16px',
-                    color: '#cf9972',
-                    textAlign: 'center',
-                    textDecoration: 'underline',
-                },
-            },
             '&__content': {
-                rowGap: '32px',
-                display: 'grid',
+                display: 'flex',
                 columnGap: '8px',
                 marginTop: '32px',
-                gridTemplateAreas: `'capabilities portfolio' 'copyright contacts'`,
-                '&--capabilities': {
-                    gridArea: 'capabilities',
-                },
-                '&--portfolio': {
-                    gridArea: 'portfolio',
-                },
                 '&--copyright': {
+                    flex: 1,
                     display: 'flex',
-                    gridArea: 'copyright',
                     justifyContent: 'center',
                     '.MuiTypography-caption': {
                         fontWeight: 500,
@@ -103,9 +74,9 @@ const useStyles = makeStyles()(({ breakpoints }) => ({
                     }
                 },
                 '&--contacts': {
+                    flex: 1,
                     gap: '8px',
                     display: 'flex',
-                    gridArea: 'contacts',
                     justifyContent: 'center',
                     '.MuiLink-root': {
                         display: 'inline-block',
@@ -166,22 +137,14 @@ const Footer: FC = () => {
                 <Box className="footer-right">
                     <Typography variant="h4" sx={{ gridArea: 'title' }}>{`Welcome to\nLululand`}</Typography>
                     <Box className="footer-right__content">
-                        {Object.values(footerInfos(t)).map((info, idx) => (
-                            <Box key={idx} className={`${info.className} navigation`}>
-                                <Typography variant="subtitle1">{info.title}</Typography>
-                                {info.children.map((capability, idx) => (
-                                    <Link key={idx} href={capability.path}>{capability.label}</Link>    
-                                ))}
-                            </Box>
-                        ))}
                         <Box className="footer-right__content--copyright">
                             <Typography variant="caption">Ⓡ 2024, Lululand.</Typography>
                         </Box>
                         <Box className="footer-right__content--contacts">
-                            <LinkMaterial target="_blank" href="https://www.linkedin.com/">
+                            <LinkMaterial target="_blank" href="https://www.linkedin.com/in/honghanh25/">
                                 <LinkedInIcon />
                             </LinkMaterial>
-                            <LinkMaterial target="_blank" href="https://www.instagram.com/">
+                            <LinkMaterial target="_blank" href="https://www.instagram.com/kat.iaartist/">
                                 <InstagramIcon />
                             </LinkMaterial>
                         </Box>

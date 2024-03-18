@@ -42,8 +42,8 @@ const useStyles = makeStyles()(({ breakpoints }) => ({
         transition: 'transform 0.2s ease-in-out',
         fontFamily: roboto_condensed.style.fontFamily,
         '&:nth-of-type(1)': {
-            top: '11%',
-            left: '24%',
+            top: '18%',
+            left: '25%',
         },
         '&:nth-of-type(2)': {
             top: '40%',
@@ -67,7 +67,7 @@ const useStyles = makeStyles()(({ breakpoints }) => ({
         },
         [breakpoints.up('sm')]: {
             '&:nth-of-type(1)': {
-                top: '14%',
+                top: '20%',
                 left: '25%',
             },
             '&:nth-of-type(2)': {
